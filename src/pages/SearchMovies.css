@@ -61,3 +61,54 @@
     height: 40px;
     width: 40px;
 }
+
+#body {
+    padding: 48px;
+}
+
+.body__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-content: space-between;
+}
+
+.body__movie {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.body__about {
+    margin-top: 12px;
+    max-width: 300px;
+    font-size: 20px;     
+}
+
+.body__img--wrapper {
+    transition: all 300ms ease;
+}
+
+.body__img--wrapper:hover {
+    filter: brightness(80%);
+    transform: scale(1.03);
+}
+
+.body__img{
+    max-width: 300px;
+}
+
+.error-message {
+    margin: 0 auto;
+    margin-top: 48px;
+}
+
+.error--title {
+    font-size: 26px;
+}
+
+.error--movie-name {
+    font-weight: 700;
+    color: red;
+}

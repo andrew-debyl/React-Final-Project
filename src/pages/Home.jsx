@@ -4,7 +4,7 @@ import { SearchIcon } from "@heroicons/react/solid";
 import "./Home.css";
 import movieIcon from '../assets/undraw_movie.svg'
 
-function Home() {
+function Home({fetchMovies}) {
   return (
     <div>
       <Header bool={true} />
@@ -20,7 +20,7 @@ function Home() {
             type="text"
             placeholder="Search by Keyword"
             className="nav__search-bar"
-            /*onkeypress="onEnter(event)"*/
+            onKeyDown={fetchMovies}
           />
           <div className="nav__header--clicker" /*onclick="onClick()"*/>
             <SearchIcon className="searchIcon" />
