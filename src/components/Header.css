@@ -78,6 +78,7 @@
     background-color: #302b63;
     list-style: none;
     margin-left: 50px;
+    cursor: not-allowed;
 }
 
 .nav-contact:hover, .nav-contact-purple:hover {

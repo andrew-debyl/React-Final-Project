@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../components/Header";
 import { SearchIcon } from "@heroicons/react/solid";
 import "./SearchMovies.css";
 import noImg from "../assets/noimage.png";
 import { Link } from "react-router-dom";
 
-function SearchMovies({ fetchMovies, movies, ifFound, movieName }) {
+function SearchMovies({ fetchMovies, movies, ifFound, movieName, fetchMoviesOnClick }) {
   function moviesHTML(movies) {
     return (
       <div className="body__movie" key={movies.imdbID}>
@@ -29,6 +29,8 @@ function SearchMovies({ fetchMovies, movies, ifFound, movieName }) {
     );
   }
 
+  const [searchMovie, setSearchMovie] = useState('')
+
   return (
     <div>
       <Header bool={false} />
@@ -43,8 +45,9 @@ function SearchMovies({ fetchMovies, movies, ifFound, movieName }) {
                 placeholder="Search by Keyword"
                 className="nav__search-bar"
                 onKeyDown={fetchMovies}
+                onChange={(e) => setSearchMovie(e.target.value)}
               />
-              <div className="nav__header--clicker" /*onclick="onClick()"*/>
+              <div className="nav__header--clicker" onClick={() => fetchMoviesOnClick(searchMovie)}>
                 <SearchIcon className="searchIcon" />
               </div>
             </div>

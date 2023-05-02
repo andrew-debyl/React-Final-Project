@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../components/Header";
 import { SearchIcon } from "@heroicons/react/solid";
 import "./Home.css";
 import movieIcon from '../assets/undraw_movie.svg'
+import { useNavigate } from "react-router-dom";
 
-function Home({fetchMovies}) {
+function Home({fetchMovies, fetchMoviesOnClick}) {
+  let navigate = useNavigate()
+  const [searchMovie, setSearchMovie] = useState('')
+
+  function moviesOnSearch (event) {
+    fetchMovies(event); 
+    navigate('/search');
+  }
+
+  function moviesOnClick (event) {
+    fetchMoviesOnClick(event)
+    navigate('/search');
+  }
+
   return (
     <div>
       <Header bool={true} />
@@ -20,9 +34,10 @@ function Home({fetchMovies}) {
             type="text"
             placeholder="Search by Keyword"
             className="nav__search-bar"
-            onKeyDown={fetchMovies}
+            onKeyDown={(event) => event.key === 'Enter' && moviesOnSearch(event)}
+            onChange={(e) => setSearchMovie(e.target.value)}
           />
-          <div className="nav__header--clicker" /*onclick="onClick()"*/>
+          <div className="nav__header--clicker" onClick={() => moviesOnClick(searchMovie)}>
             <SearchIcon className="searchIcon" />
           </div>
         </div>
