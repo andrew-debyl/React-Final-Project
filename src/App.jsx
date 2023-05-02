@@ -68,6 +68,7 @@ function App() {
           <Route path="/search/:imdbID" element={<Movie />} />
         </Routes>
       </div>
+      <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
     </Router>
   );
 }
