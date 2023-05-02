@@ -1,0 +1,26 @@
+.movie--wrapper {
+    padding-top: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.movie {
+    display: flex;
+}
+
+.movie__description--wrapper {
+    max-width: 600px;
+    padding-left: 42px;
+  
+}
+
+.movie__info {
+    line-height: 1.5;
+    padding-top: 12px;
+}
+
+.movie__title {
+    border-bottom: 2px solid #302b63;
+    padding-bottom: 12px;
+}

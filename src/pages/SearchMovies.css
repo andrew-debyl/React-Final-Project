@@ -77,17 +77,22 @@
     padding: 24px;
     display: flex;
     flex-direction: column;
-    
 }
 
 .body__about {
     margin-top: 12px;
     max-width: 300px;
-    font-size: 20px;     
+    font-size: 20px;   
+    color: #0f0c29;
+}
+
+.body__about--wrapper {
+    cursor: pointer;
 }
 
 .body__img--wrapper {
     transition: all 300ms ease;
+    cursor: pointer;
 }
 
 .body__img--wrapper:hover {
@@ -111,4 +116,9 @@
 .error--movie-name {
     font-weight: 700;
     color: red;
+}
+
+.link__style {
+    text-decoration: none;
+    color: #0f0c29;
 }

@@ -31,7 +31,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home fetchMovies={fetchMovies}/>}/>
           <Route path='/search' element={<SearchMovies fetchMovies={fetchMovies} movies={movies} ifFound={ifFound} movieName={movieName}/>}/>
-          <Route path='/movie' element={<Movie/>}/>
+          <Route path="/search/:imdbID" element={<Movie/>}/>
         </Routes>
       </div>
     </Router>
