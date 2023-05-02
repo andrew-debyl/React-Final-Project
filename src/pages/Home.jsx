@@ -2,21 +2,25 @@ import React, { useState } from "react";
 import Header from "../components/Header";
 import { SearchIcon } from "@heroicons/react/solid";
 import "./Home.css";
-import movieIcon from '../assets/undraw_movie.svg'
+import movieIcon from "../assets/undraw_movie.svg";
 import { useNavigate } from "react-router-dom";
 
-function Home({fetchMovies, fetchMoviesOnClick}) {
-  let navigate = useNavigate()
-  const [searchMovie, setSearchMovie] = useState('')
+function Home({ fetchMovies, fetchMoviesOnClick }) {
+  let navigate = useNavigate();
+  const [searchMovie, setSearchMovie] = useState("");
 
-  function moviesOnSearch (event) {
-    fetchMovies(event); 
-    navigate('/search');
+  function moviesOnSearch(event) {
+    if (event.target.value !== '') {
+      fetchMovies(event);
+      navigate("/search");
+    }
   }
 
-  function moviesOnClick (event) {
-    fetchMoviesOnClick(event)
-    navigate('/search');
+  function moviesOnClick(event) {
+    if (event !== '') {
+      fetchMoviesOnClick(event);
+      navigate("/search");
+    }
   }
 
   return (
@@ -32,17 +36,22 @@ function Home({fetchMovies, fetchMoviesOnClick}) {
           <input
             id="search-bar"
             type="text"
-            placeholder="Search by Keyword"
+            placeholder="Search by Keyword or Title"
             className="nav__search-bar"
-            onKeyDown={(event) => event.key === 'Enter' && moviesOnSearch(event)}
+            onKeyDown={(event) =>
+              event.key === "Enter" && moviesOnSearch(event)
+            }
             onChange={(e) => setSearchMovie(e.target.value)}
           />
-          <div className="nav__header--clicker" onClick={() => moviesOnClick(searchMovie)}>
+          <div
+            className="nav__header--clicker"
+            onClick={() => moviesOnClick(searchMovie)}
+          >
             <SearchIcon className="searchIcon" />
           </div>
         </div>
         <div className="movie--img-container">
-          <img src={movieIcon} alt="" className="movie--img"/>
+          <img src={movieIcon} alt="" className="movie--img" />
         </div>
       </div>
     </div>

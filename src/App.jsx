@@ -4,7 +4,7 @@ import Home from "./pages/Home";
 import SearchMovies from "./pages/SearchMovies";
 import Movie from "./pages/Movie";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -12,7 +12,7 @@ function App() {
   const [movieName, setMovieName] = useState("");
 
   async function fetchMovies(event) {
-    if (event.key === "Enter") {
+    if (event.key === "Enter" && event.target.value !== '') {
       const { data } = await axios.get(
         "http://www.omdbapi.com/?i=tt3896198&apikey=7ba85e40&s=" +
           event.target.value

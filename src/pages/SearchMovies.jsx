@@ -42,12 +42,12 @@ function SearchMovies({ fetchMovies, movies, ifFound, movieName, fetchMoviesOnCl
               <input
                 id="search-bar"
                 type="text"
-                placeholder="Search by Keyword"
+                placeholder="Search by Keyword or Title"
                 className="nav__search-bar"
                 onKeyDown={fetchMovies}
                 onChange={(e) => setSearchMovie(e.target.value)}
               />
-              <div className="nav__header--clicker" onClick={() => fetchMoviesOnClick(searchMovie)}>
+              <div className="nav__header--clicker" onClick={() => searchMovie !== '' && fetchMoviesOnClick(searchMovie)}>
                 <SearchIcon className="searchIcon" />
               </div>
             </div>
