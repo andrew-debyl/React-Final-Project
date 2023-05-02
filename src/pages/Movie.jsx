@@ -18,7 +18,6 @@ function Movie() {
     getInfo()
   },[])
 
-  console.log(movie);
   return (
     <div>
       <Header bool={false} />
