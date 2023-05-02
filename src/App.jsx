@@ -1,10 +1,10 @@
-import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import SearchMovies from "./pages/SearchMovies";
 import Movie from "./pages/Movie";
 import axios from "axios";
 import { useState } from "react";
+import "./App.css";
 
 function App() {
   const [movies, setMovies] = useState([]);
